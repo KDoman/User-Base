@@ -1,0 +1,84 @@
+* {
+  font-family: "M PLUS 1p", sans-serif;
+}
+
+header {
+  text-align: center;
+}
+header input {
+  padding: 0 1em;
+  font-size: 1.2em;
+  margin: 0 1em 0 0;
+}
+header #box-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1em;
+}
+header #box-input img {
+  padding: 3px;
+  width: 25px;
+  height: 25px;
+}
+header #box-input img:hover {
+  cursor: pointer;
+}
+header #box-input img:nth-of-type(2) {
+  width: 28px;
+  height: 28px;
+}
+
+main input {
+  padding: 0 2em;
+  font-size: 1.2em;
+}
+main section {
+  display: flex;
+  justify-content: center;
+}
+
+#container {
+  width: 70vw;
+  height: 50vh;
+  border: 2px solid black;
+  border-radius: 1em;
+  overflow: hidden;
+}
+#container #users-info {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+#container #users-info .info-box {
+  display: flex;
+  justify-content: center;
+  border: 1px solid black;
+}
+#container .box-user {
+  width: 100%;
+  height: 5%;
+  background-color: rgb(218, 218, 218);
+  border-bottom: 1px solid black;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+#container .box-user .name-user {
+  display: flex;
+  justify-content: center;
+}
+#container .box-user .surname-user {
+  display: flex;
+  justify-content: center;
+}
+#container .box-user .date-user {
+  display: flex;
+  justify-content: center;
+}
+#container .box-user .city-user {
+  display: flex;
+  justify-content: center;
+}
+#container .box-user .postcode-user {
+  display: flex;
+  justify-content: center;
+}/*# sourceMappingURL=style.css.map */
