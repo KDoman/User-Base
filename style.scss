@@ -1,7 +1,13 @@
 $base-Font: 'M PLUS 1p', sans-serif;
+$panel-color: rgb(169, 169, 169);
+$button-color: rgb(240, 231, 55);
 @mixin flexCenter() {
     display:flex;
     justify-content: center;
+}
+@mixin borderside(){
+    border-right: 1px solid black;
+    border-left: 1px solid black;   
 }
 
 
@@ -57,7 +63,7 @@ main{
     overflow:hidden;
     #users-info{
         display: grid;
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat(5,1fr) 60px;
         .info-box{
             display:flex;
             justify-content: center;
@@ -66,7 +72,7 @@ main{
     }
     #add-user-panel{
     position: absolute;
-    background-color: grey;
+    background-color: $panel-color;
     width: 50%;
     height: 50%;
     top:25%;
@@ -78,39 +84,55 @@ main{
     input{
         padding:0;
         margin: 0.1em;
-        width: 200px;
+        width: 50%;
         border-radius: 5px;
         font-size: small;
     }
     button{
-        background-color:cadetblue;
+        background-color:$button-color;
         border-radius: 10px;
-        width: 50%;
+        width: 20%;
         float: right;
+        cursor: pointer;
+        position:absolute;
+        bottom:5px;
+        right: 5px;
+    }
+    img{
+        width: 23px;
+        height: 23px;
+        position:absolute;
+        right:5px;
+        top: 5px;
         cursor: pointer;
     }
 }
     .new-user{
         width: 100%;
-        height: 5%;
+        height: auto;
         background-color: rgb(218, 218, 218);
         border-bottom: 1px solid black;
         display:grid;
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat(5, 1fr) 60px;
         .name-user{
-            @include flexCenter()
+            @include flexCenter();
+            @include borderside();
         }
         .surname-user{
-            @include flexCenter()
+            @include flexCenter();
+            @include borderside();
         }
         .date-user{
-            @include flexCenter()
+            @include flexCenter();
+            @include borderside();
         }
         .city-user{
-            @include flexCenter()
+            @include flexCenter();
+            @include borderside();
         }
         .postcode-user{
-            @include flexCenter()
+            @include flexCenter();
+            @include borderside();
         }
     }
 }

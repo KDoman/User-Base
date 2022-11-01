@@ -48,7 +48,7 @@ main section {
 }
 #container #users-info {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(5, 1fr) 60px;
 }
 #container #users-info .info-box {
   display: flex;
@@ -57,7 +57,7 @@ main section {
 }
 #container #add-user-panel {
   position: absolute;
-  background-color: grey;
+  background-color: rgb(169, 169, 169);
   width: 50%;
   height: 50%;
   top: 25%;
@@ -69,42 +69,63 @@ main section {
 #container #add-user-panel input {
   padding: 0;
   margin: 0.1em;
-  width: 200px;
+  width: 50%;
   border-radius: 5px;
   font-size: small;
 }
 #container #add-user-panel button {
-  background-color: cadetblue;
+  background-color: rgb(240, 231, 55);
   border-radius: 10px;
-  width: 50%;
+  width: 20%;
   float: right;
+  cursor: pointer;
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+}
+#container #add-user-panel img {
+  width: 23px;
+  height: 23px;
+  position: absolute;
+  right: 5px;
+  top: 5px;
   cursor: pointer;
 }
 #container .new-user {
   width: 100%;
-  height: 5%;
+  height: auto;
   background-color: rgb(218, 218, 218);
   border-bottom: 1px solid black;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(5, 1fr) 60px;
 }
 #container .new-user .name-user {
   display: flex;
   justify-content: center;
+  border-right: 1px solid black;
+  border-left: 1px solid black;
 }
 #container .new-user .surname-user {
   display: flex;
   justify-content: center;
+  border-right: 1px solid black;
+  border-left: 1px solid black;
 }
 #container .new-user .date-user {
   display: flex;
   justify-content: center;
+  border-right: 1px solid black;
+  border-left: 1px solid black;
 }
 #container .new-user .city-user {
   display: flex;
   justify-content: center;
+  border-right: 1px solid black;
+  border-left: 1px solid black;
 }
 #container .new-user .postcode-user {
   display: flex;
   justify-content: center;
+  border-right: 1px solid black;
+  border-left: 1px solid black;
 }/*# sourceMappingURL=style.css.map */
