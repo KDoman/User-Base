@@ -4,6 +4,7 @@ $button-color: rgb(240, 231, 55);
 @mixin flexCenter() {
     display:flex;
     justify-content: center;
+    align-items: center;
 }
 @mixin borderside(){
     border-right: 1px solid black;
@@ -71,16 +72,16 @@ main{
         }
     }
     #add-user-panel{
-    position: absolute;
-    background-color: $panel-color;
-    width: 50%;
-    height: 50%;
-    top:25%;
-    left: 25%;
-    display:none;
-    border-radius: 10px;
-    border: 3px solid black;
-    // display:grid;
+        position: absolute;
+        background-color: $panel-color;
+        width: 50%;
+        height: 50%;
+        top:25%;
+        left: 25%;
+        display:none;
+        border-radius: 10px;
+        border: 3px solid black;
+        // display:grid;
     input{
         padding:0;
         margin: 0.1em;
@@ -134,5 +135,48 @@ main{
             @include flexCenter();
             @include borderside();
         }
+        .select-user{
+            @include flexCenter();
+            @include borderside();
+            img{
+                width: 20px;
+                height: 20px;
+                padding: 0 5%;
+                cursor: pointer;
+            }
+        }
     }
+    #delete-question-panel{
+        position: absolute;
+        background-color: $panel-color;
+        width: 50%;
+        height: 50%;
+        top:25%;
+        left: 25%;
+        border-radius: 10px;
+        border: 3px solid black;
+        text-align: center;
+        display:none;
+        }
+        #delete-question-panel-button-div{
+            display:flex;
+            justify-content: space-evenly;
+            button{
+                padding: 0 1em;
+                border-radius: 10px;
+                cursor: pointer;
+                &:nth-of-type(1){
+                    background-color: rgb(97, 186, 97);
+                }
+                &:nth-of-type(2){
+                    background-color: rgb(229, 84, 84);
+                }
+            }
+        }
+        #delete-question-panel-info-user{
+            p{
+                margin:0;
+
+            }
+        }
 }
