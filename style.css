@@ -24,10 +24,6 @@ header #box-input img {
 header #box-input img:hover {
   cursor: pointer;
 }
-header #box-input img:nth-of-type(2) {
-  width: 28px;
-  height: 28px;
-}
 
 main input {
   padding: 0 2em;
