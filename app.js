@@ -1,17 +1,4 @@
 const container = document.querySelector('#container');
-
-// person class
-class Person{
-    constructor(name,surname,date,city,postcode){
-        this.name = name;
-        this.surname = surname;
-        this.date = date;
-        this.city = city;
-        this.postcode = postcode;
-    }
-
-}
-
 const userPanel = document.querySelector('#add-user-panel')
 const submitUserAddPanel = document.querySelector('#submit-user-add-panel')
 const plusSign = document.querySelector('#plus-Sign');
@@ -26,100 +13,98 @@ const deleteQuestionPanelYesButton = document.querySelector('#delete-question-pa
 const deleteQuestionPanelNoButton = document.querySelector('#delete-question-panel-button-div-no');
 const deleteQuestionPanelInfoUser = document.querySelector('#delete-question-panel-info-user');
 
-function showUserBoxInfo(user) {
 
-    let userInfoName = document.createElement('p');
-    deleteQuestionPanelInfoUser.append(userInfoName);
-    userInfoName.innerText = `Name: ${user.name}`;
 
-    let userInfoSurname = document.createElement('p');
-    deleteQuestionPanelInfoUser.append(userInfoSurname);
-    userInfoSurname.innerText = `Surname: ${user.surname}`;
 
-    let userInfoDate = document.createElement('p');
-    deleteQuestionPanelInfoUser.append(userInfoDate);
-    userInfoDate.innerText = `Date of birth: ${user.date}`;
 
-    let userInfoCity = document.createElement('p');
-    deleteQuestionPanelInfoUser.append(userInfoCity);
-    userInfoCity.innerText = `City: ${user.city}`;
 
-    let userInfoPostcode = document.createElement('p');
-    deleteQuestionPanelInfoUser.append(userInfoPostcode);
-    userInfoPostcode.innerText = `Postcode: ${user.postcode}`;
+
+// person class
+class Person{
+    constructor(name,surname,date,city,postcode){
+        this.name = name;
+        this.surname = surname;
+        this.date = date;
+        this.city = city;
+        this.postcode = postcode;
+    }
+    boxUser = () => {
+        inputName.innerText = this.name;
+        inputSurrname.innerText = this.surname;
+        inputDate.innerText = this.date;
+        inputCity.innerText = this.city;
+        inputPostcode.innerText = this.postcode;
+
+        // creating one div for each user
+        let newUserBox = document.createElement('div');
+        newUserBox.classList.add('new-user');
+        container.append(newUserBox);
+
+        let nameUser = document.createElement('div');
+        nameUser.classList.add('name-user');
+        let surnameUser = document.createElement('div');
+        surnameUser.classList.add('surname-user');
+        let dateUser = document.createElement('div');
+        dateUser.classList.add('date-user');
+        let cityUser = document.createElement('div');
+        cityUser.classList.add('city-user');
+        let postcodeUser = document.createElement('div');
+        postcodeUser.classList.add('postcode-user');
+        let selectUser = document.createElement('div');
+        selectUser.classList.add('select-user');        
+        let selectUserFirstImg = document.createElement('img');
+        selectUserFirstImg.setAttribute('src', 'cross-mark.png');
+        selectUser.append(selectUserFirstImg);
+        let selectUserSecondImg = document.createElement('img');
+        selectUserSecondImg.setAttribute('src', 'edit.png');
+        selectUser.append(selectUserSecondImg);
+
+        newUserBox.append(nameUser, surnameUser, dateUser, cityUser, postcodeUser,selectUser);
+
+        nameUser.innerText = this.name;
+        surnameUser.innerText = this.surname;
+        dateUser.innerText = this.date;
+        cityUser.innerText = this.city;
+        postcodeUser.innerText = this.postcode;
+
+
+        selectUserFirstImg.addEventListener('click', () => {
+            deleteQuestionPanel.style.display = 'block';
+            deleteQuestionPanelInfoUser.innerHTML = 
+            `<p>Name: ${this.name}</p>
+             <p> Surname: ${this.surname}</p>
+             <p> City: ${this.city}</p>
+             <p> Date of birth: ${this.date}</p>
+             <p> Postcode: ${this.postcode}</p>
+            `
+            deleteQuestionPanelNoButton.addEventListener('click', () => {
+                deleteQuestionPanel.style.display = 'none';
+            })
+            deleteQuestionPanelYesButton.addEventListener('click', () => {
+                newUserBox.remove(nameUser, surnameUser, dateUser, cityUser, postcodeUser,selectUser)
+                deleteQuestionPanelInfoUser.innerHTML = "";
+                deleteQuestionPanel.style.display = 'none';
+            }) 
+        })
+
+
+
+    }
+
+
 }
 
-function UserBox() {
-
-    // creating one div for each user
-    let newUserBox = document.createElement('div');
-    newUserBox.classList.add('new-user');
-    container.append(newUserBox);
-
-    // creating div's for each info (name, surrname etc...)
-    let nameUser = document.createElement('div');
-    nameUser.classList.add('name-user');
-    let surnameUser = document.createElement('div');
-    surnameUser.classList.add('surname-user');
-    let dateUser = document.createElement('div');
-    dateUser.classList.add('date-user');
-    let cityUser = document.createElement('div');
-    cityUser.classList.add('city-user');
-    let postcodeUser = document.createElement('div');
-    postcodeUser.classList.add('postcode-user');
-
-    // select column
-    let selectUser = document.createElement('div');
-    selectUser.classList.add('select-user');
-    let selectUserFirstImg = document.createElement('img');
-    selectUserFirstImg.setAttribute('src', 'cross-mark.png');
-    selectUser.append(selectUserFirstImg);
-    let selectUserSecondImg = document.createElement('img');
-    selectUserSecondImg.setAttribute('src', 'edit.png');
-    selectUser.append(selectUserSecondImg);
-
-    // adding all div's into one div
-    newUserBox.append(nameUser, surnameUser, dateUser, cityUser, postcodeUser, selectUser);
-
-    // take inner text in inputs to display them on info div's
-    let newUser = new Person(inputName.value, inputSurrname.value, inputDate.value, inputCity.value, inputPostcode.value);
-    nameUser.innerText = newUser.name;
-    surnameUser.innerText = newUser.surname;
-    dateUser.innerText = newUser.date;
-    cityUser.innerText = newUser.city;
-    postcodeUser.innerText = newUser.postcode;
-
-    // // IMG DELETE in "SELECT" column (On click)
-    selectUserFirstImg.addEventListener('click', () => {
-        deleteQuestionPanel.style.display = 'block';
-        showUserBoxInfo(newUser)
-        deleteQuestionPanelYesButton.addEventListener('click', () => {
-            newUserBox.remove();
-            deleteQuestionPanel.style.display = 'none';
-            deleteQuestionPanelInfoUser.remove(userInfoName, userInfoSurname, userInfoDate, userInfoCity, userInfoPostcode);
-
-        });
-        deleteQuestionPanelNoButton.addEventListener('click', () => {
-            deleteQuestionPanel.style.display = 'none';
-            deleteQuestionPanelInfoUser.remove(userInfoName, userInfoSurname, userInfoDate, userInfoCity, userInfoPostcode);
-
-        });
-    });
-}
 
 
-
-// Plus sign on click
-plusSign.addEventListener('click',() => {
+plusSign.addEventListener('click', () => {
     userPanel.style.display = 'grid';
-    resignation.addEventListener('click',() => {
+    resignation.addEventListener('click', () => {
         userPanel.style.display = 'none';
     })
 })
 
-// Submit button on click (plus sign div)
-submitUserAddPanel.addEventListener('click',() => {
-    UserBox();
+submitUserAddPanel.addEventListener('click', () => {
     userPanel.style.display = 'none';
-});
-
+    let newUser = new Person(inputName.value, inputSurrname.value, inputDate.value, inputCity.value, inputPostcode.value);
+    newUser.boxUser()
+})
