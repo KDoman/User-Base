@@ -36,6 +36,7 @@ class Person{
         inputPostcode.innerText = this.postcode;
 
         // creating one div for each user
+
         let newUserBox = document.createElement('div');
         newUserBox.classList.add('new-user');
         container.append(newUserBox);
@@ -66,6 +67,8 @@ class Person{
         dateUser.innerText = this.date;
         cityUser.innerText = this.city;
         postcodeUser.innerText = this.postcode;
+        
+        const userCreate = [nameUser,surnameUser,dateUser,cityUser,postcodeUser,selectUser]
 
 
         selectUserFirstImg.addEventListener('click', () => {
@@ -81,13 +84,11 @@ class Person{
                 deleteQuestionPanel.style.display = 'none';
             })
             deleteQuestionPanelYesButton.addEventListener('click', () => {
-                newUserBox.remove(nameUser, surnameUser, dateUser, cityUser, postcodeUser,selectUser)
+                newUserBox.remove(userCreate)
                 deleteQuestionPanelInfoUser.innerHTML = "";
                 deleteQuestionPanel.style.display = 'none';
             }) 
         })
-
-
 
     }
 
